@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "Meta Chat POC",
+  "version": "1.0",
+  "description": "A proof of concept for meta chat functionality",
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://chat.deepseek.com/*"],
+      "js": ["scripts/content-deepseek.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["*://yuanbao.tencent.com/*"],
+      "js": ["scripts/content-yuanbao.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["*://www.kimi.com/*", "*://kimi.moonshot.cn/*"],
+      "js": ["scripts/content-kimi.js"],
+      "run_at": "document_end"
+    }
+  ],
+      "permissions": [
+        "storage",
+        "activeTab",
+        "tabs",
+        "scripting",
+        "webRequest"
+    ],
+  "host_permissions": [
+    "*://chat.deepseek.com/*",
+    "*://yuanbao.tencent.com/*",
+    "*://www.kimi.com/*",
+    "*://kimi.moonshot.cn/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["main/*", "popup/*", "scripts/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

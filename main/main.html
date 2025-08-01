@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Meta Chat - Multi AI Chat Interface</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Meta Chat</h1>
+            <div class="status">
+                <span id="connectionStatus">Initializing...</span>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <!-- Tab Management Container -->
+            <div class="tab-container">
+                <div class="tab-controls">
+                    <div class="platform-tabs">
+                        <button class="tab-btn" data-platform="deepseek" id="deepseek-tab">
+                            <span class="tab-icon">🤖</span>
+                            <span class="tab-text">DeepSeek</span>
+                            <span class="tab-status" id="deepseek-status">●</span>
+                        </button>
+                        <button class="tab-btn" data-platform="yuanbao" id="yuanbao-tab">
+                            <span class="tab-icon">💎</span>
+                            <span class="tab-text">Yuanbao</span>
+                            <span class="tab-status" id="yuanbao-status">●</span>
+                        </button>
+                        <button class="tab-btn" data-platform="kimi" id="kimi-tab">
+                            <span class="tab-icon">🚀</span>
+                            <span class="tab-text">Kimi</span>
+                            <span class="tab-status" id="kimi-status">●</span>
+                        </button>
+                    </div>
+                    <div class="tab-actions">
+                        <button id="openAllTabs" class="action-btn">Open All Platforms</button>
+                        <button id="refreshTabs" class="action-btn">Refresh Connections</button>
+                    </div>
+                </div>
+                
+                <div class="response-display">
+                    <div class="response-header">
+                        <h3>AI Responses</h3>
+                        <div class="response-controls">
+                            <button id="clearResponses" class="clear-btn">Clear All</button>
+                            <button id="exportResponses" class="export-btn">Export</button>
+                        </div>
+                    </div>
+                    
+                    <div class="responses-grid">
+                        <div class="response-card" id="deepseek-response">
+                            <div class="card-header">
+                                <h4>DeepSeek</h4>
+                                <span class="response-status">Ready</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="response-text">Click "Open All Platforms" to start...</div>
+                            </div>
+                        </div>
+                        
+                        <div class="response-card" id="yuanbao-response">
+                            <div class="card-header">
+                                <h4>Tencent Yuanbao</h4>
+                                <span class="response-status">Ready</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="response-text">Click "Open All Platforms" to start...</div>
+                            </div>
+                        </div>
+                        
+                        <div class="response-card" id="kimi-response">
+                            <div class="card-header">
+                                <h4>Kimi</h4>
+                                <span class="response-status">Ready</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="response-text">Click "Open All Platforms" to start...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- chat input area -->
+            <div class="chat-input-area">
+                <div class="input-header">
+                    <h3>Send to All Chats</h3>
+                    <div class="send-options">
+                        <label>
+                            <input type="checkbox" id="autoSend" checked> Auto-send after input
+                        </label>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Enter your message here and it will be sent to all chat platforms..."
+                        rows="4"
+                    ></textarea>
+                    <div class="input-actions">
+                        <button id="sendToAll" class="send-btn">Send to All</button>
+                        <button id="clearInput" class="clear-btn">Clear</button>
+                    </div>
+                </div>
+                <div class="status-indicators">
+                    <div class="platform-status" id="status-deepseek">
+                        <span class="status-dot"></span>
+                        <span>DeepSeek: Ready</span>
+                    </div>
+                    <div class="platform-status" id="status-yuanbao">
+                        <span class="status-dot"></span>
+                        <span>Yuanbao: Ready</span>
+                    </div>
+                    <div class="platform-status" id="status-kimi">
+                        <span class="status-dot"></span>
+                        <span>Kimi: Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
